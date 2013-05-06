@@ -1,6 +1,6 @@
 # NAME
 
-App::Prove::Plugin::MySQLParallel - It's new $module
+App::Prove::Plugin::MySQLParallel - execute parallel testing by number of MySQL's nodes.
 
 # SYNOPSIS
 
@@ -8,7 +8,7 @@ App::Prove::Plugin::MySQLParallel - It's new $module
 
 # DESCRIPTION
 
-App::Prove::Plugin::MySQLParallel is a parallel test from the number of nodes of MySQL::Sandbox.
+App::Prove::Plugin::MySQLParallel is a execute parallel testing by number of MySQL's nodes of [MySQL::Sandbox](http://search.cpan.org/perldoc?MySQL::Sandbox).
 
 # SETUP
 
@@ -20,15 +20,15 @@ Make multiple instances.
 
     $ make_multiple_sandbox --how_many_nodes=4 5.1.69
 
-Options: if you want use Q4M, `log_bin` to trun off.
+Optional: if you want use Q4M, `log_bin` to trun off.
 
-    $ cd ~/sandboxes/msb_5_1_69/
+    $ cd ~/sandboxes/multi_msb_5_1_69
     $ perl -pi -lne 's/^log-bin=.*//' node*/my*.cnf
     $ ./restart_all
 
 # HOW TO USE
 
-[App::Prove::Plugin::MySQLParallel](http://search.cpan.org/perldoc?App::Prove::Plugin::MySQLParallel) is set environment variable before runngin each test.
+App::Prove::Plugin::MySQLParallel is set environment variable before runngin each test.
 You can use the following values:
 
     $ENV{TEST_MYSQL_SOCK}

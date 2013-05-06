@@ -1,5 +1,5 @@
 {
-   "abstract" : "It's new $module",
+   "abstract" : "execute parallel testing by number of MySQL's nodes.",
    "author" : [
       "xaicron <xaicron@gmail.com>"
    ],
@@ -57,5 +57,16 @@
       }
    },
    "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/xaicron/App-Prove-Plugin-MySQLParallel/issues"
+      },
+      "homepage" : "https://github.com/xaicron/App-Prove-Plugin-MySQLParallel",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/xaicron/App-Prove-Plugin-MySQLParallel.git",
+         "web" : "https://github.com/xaicron/App-Prove-Plugin-MySQLParallel"
+      }
+   },
    "version" : "0.01"
 }
