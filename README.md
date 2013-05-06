@@ -4,11 +4,44 @@ App::Prove::Plugin::MySQLParallel - It's new $module
 
 # SYNOPSIS
 
-    use App::Prove::Plugin::MySQLParallel;
+    env TEST_MYSQL_SANDBOX_HOME=$HOME/sandboxes/multi_msb_5_1_69 prove -PMySQLParallel -lrc t
 
 # DESCRIPTION
 
-App::Prove::Plugin::MySQLParallel is ...
+App::Prove::Plugin::MySQLParallel is a parallel test from the number of nodes of MySQL::Sandbox.
+
+# SETUP
+
+Installing [MySQL::Sandbox](http://search.cpan.org/perldoc?MySQL::Sandbox).
+
+    $ cpanm MySQL::Sandbox
+
+Make multiple instances.
+
+    $ make_multiple_sandbox --how_many_nodes=4 5.1.69
+
+Options: if you want use Q4M, `log_bin` to trun off.
+
+    $ cd ~/sandboxes/msb_5_1_69/
+    $ perl -pi -lne 's/^log-bin=.*//' node*/my*.cnf
+    $ ./restart_all
+
+# HOW TO USE
+
+[App::Prove::Plugin::MySQLParallel](http://search.cpan.org/perldoc?App::Prove::Plugin::MySQLParallel) is set environment variable before runngin each test.
+You can use the following values:
+
+    $ENV{TEST_MYSQL_SOCK}
+    $ENV{TEST_MYSQL_USER}
+    $ENV{TEST_MYSQL_PASS}
+
+For example in your test
+
+    my $dbh = DBI->connect(
+        "DBI:mysql:database=$dbname;mysql_socket=$ENV{TEST_MYSQL_SOCK}",
+        $ENV{TEST_MYSQL_USER},
+        $ENV{TEST_MYSQL_PASS},
+    );
 
 # LICENSE
 
