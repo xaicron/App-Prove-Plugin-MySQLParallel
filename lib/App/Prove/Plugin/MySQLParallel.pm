@@ -25,6 +25,7 @@ sub load {
     my $config = decode_json scalar read_file "$sandbox_home/default_connection.json";
     my $connections = [];
     for my $node (keys %$config) {
+        $config->{ $node }{username} =~ s/\@.*//;
         push @$connections, {
             socket   => $config->{ $node }{socket},
             username => $config->{ $node }{username},
