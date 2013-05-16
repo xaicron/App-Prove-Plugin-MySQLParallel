@@ -43,6 +43,8 @@ sub load {
         $ENV{TEST_MYSQL_SOCK} = $conn->{socket};
         $ENV{TEST_MYSQL_USER} = $conn->{username};
         $ENV{TEST_MYSQL_PASS} = $conn->{password};
+        $ENV{TEST_MYSQL_PORT} = $conn->{port};
+        $ENV{TEST_MYSQL_HOST} = $conn->{host};
 
         my $pid = $open3->(@_);
         write_file "$TEMPDIR/$pid", encode_json $conn;
