@@ -34,11 +34,21 @@ You can use the following values:
     $ENV{TEST_MYSQL_SOCK}
     $ENV{TEST_MYSQL_USER}
     $ENV{TEST_MYSQL_PASS}
+    $ENV{TEST_MYSQL_PORT}
+    $ENV{TEST_MYSQL_HOST}
 
 For example in your test
 
     my $dbh = DBI->connect(
         "DBI:mysql:database=$dbname;mysql_socket=$ENV{TEST_MYSQL_SOCK}",
+        $ENV{TEST_MYSQL_USER},
+        $ENV{TEST_MYSQL_PASS},
+    );
+
+or
+
+    my $dbh = DBI->connect(
+        "DBI:mysql:database=$dbname;host=$ENV{TEST_MYSQL_PORT};port=$ENV{TEST_MYSQL_PORT}",
         $ENV{TEST_MYSQL_USER},
         $ENV{TEST_MYSQL_PASS},
     );

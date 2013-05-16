@@ -23,8 +23,9 @@ my %args = (
         'Module::Build' => 0.38,
     },
 
-    name        => 'App-Prove-Plugin-MySQLParallel',
-    module_name => 'App::Prove::Plugin::MySQLParallel',
+    name            => 'App-Prove-Plugin-MySQLParallel',
+    module_name     => 'App::Prove::Plugin::MySQLParallel',
+    allow_pure_perl => 0,
 
     script_files => [glob('script/*'), glob('bin/*')],
 
